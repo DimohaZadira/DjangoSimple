@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "djangosimple"
+version = "0.0.1"
+description = ""
+authors = ["dimoha_zadira"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.10.12"
+django = "^5.1.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
