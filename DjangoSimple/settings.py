@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -72,11 +74,16 @@ WSGI_APPLICATION = 'DjangoSimple.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+load_dotenv()
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('ENGLISH_TUTOR_DB_NAME'),
+        'USER': os.getenv('ENGLISH_TUTOR_DBUSER_NAME'),
+        'PASSWORD': os.getenv('ENGLISH_TUTOR_DBUSER_PASSWORD'),
+        'HOST': os.getenv('ENGLISH_TUTOR_DB_HOST'),
+        'PORT': '6432',
     }
 }
 
