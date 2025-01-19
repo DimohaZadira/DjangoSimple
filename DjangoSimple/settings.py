@@ -79,6 +79,9 @@ load_dotenv()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+        'OPTIONS' : {
+            'options': '-c search_path=english_tutor'
+        },
         'NAME': os.getenv('ENGLISH_TUTOR_DB_NAME'),
         'USER': os.getenv('ENGLISH_TUTOR_DBUSER_NAME'),
         'PASSWORD': os.getenv('ENGLISH_TUTOR_DBUSER_PASSWORD'),
