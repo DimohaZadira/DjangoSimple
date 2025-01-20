@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from ninja import NinjaAPI
+from api_app.api import router as api_app_router
 
 api = NinjaAPI()
+
+api.add_router("", api_app_router)
 
 @api.get("/add")
 def add(request, a: int, b: int):
